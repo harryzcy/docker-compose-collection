@@ -1,0 +1,12 @@
+version: '3'
+services:
+  webdav:
+    build: .
+    restart: always
+    ports:
+      - "5555:80"
+    volumes:
+      - ~/webdav/config.yaml:/etc/webdav/config.yaml
+      - ~/webdav/data:/etc/webdav/data
+    environment:
+      - WD_SCOPE=/etc/webdav/data/
